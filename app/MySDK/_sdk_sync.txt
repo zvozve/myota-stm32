@@ -1,0 +1,5 @@
+此目录由 mystm32-sdk/tools/sdk-pull.py 生成，请勿手工修改（会被下次拉取覆盖）。
+本目录随工程一并提交进版本库（不要 gitignore）：对拿到工程的人它就是源码的一部分。
+SDK 版本 : 0.12.0
+拉取时间 : 2026-09-20 17:15:14
+模块清单 : chip.oop_dwt, chip.platform, chip.oop_gpio, chip.oop_uart, chip.oop_iwdg, chip.oop_flash, chip.oop_boot, middleware.SEGGER_RTT, devices.heart_beat, devices.lan8720a, protocols.ymodem, services.ota_core, services.ota, services.ota_src_uart
