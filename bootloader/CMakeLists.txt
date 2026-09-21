@@ -33,7 +33,7 @@ message("Build type: " ${CMAKE_BUILD_TYPE})
 # Enable CMake support for ASM and C languages
 enable_language(C ASM)
 
-# BL 编译定义（必须在 add_executable 之前，mystm32 子目标才继承得到）：
+# BL 编译定义（必须在 add_executable 之前，mysdk 子目标才继承得到）：
 #   SDK_BOARD_CFG —— SDK 头据此 include User/board_cfg.h（本工程为最小骨架）。
 # RTOS/裸机开关不再在 CMake 传宏：SDK 在 board_cfg.h 里读 BOARD_USE_RTOS（BL 填 0）。
 add_compile_definitions(SDK_BOARD_CFG)
@@ -44,12 +44,12 @@ add_executable(${CMAKE_PROJECT_NAME})
 # Add STM32CubeMX generated sources
 add_subdirectory(cmake/stm32cubemx)
 
-# Add mystm32-sdk（由 `python sdk_run.py pull` 同步生成于 MySDK/，单源真相）
+# Add mysdk-stm32（由 `python sdk_run.py pull` 同步生成于 MySDK/，单源真相）
 add_subdirectory(MySDK)
 
 # 让 SDK 读到工程侧 board_cfg.h
-target_include_directories(mystm32 PUBLIC ${CMAKE_SOURCE_DIR}/User)
-target_compile_definitions(mystm32 PUBLIC SDK_BOARD_CFG)
+target_include_directories(mysdk PUBLIC ${CMAKE_SOURCE_DIR}/User)
+target_compile_definitions(mysdk PUBLIC SDK_BOARD_CFG)
 
 # ===========================
 # User 源代码（ota_areas 分区表 + boot_flow 启动编排）
@@ -73,7 +73,7 @@ list(REMOVE_ITEM CMAKE_C_IMPLICIT_LINK_LIBRARIES ob)
 target_link_libraries(${CMAKE_PROJECT_NAME}
     stm32cubemx
     -Wl,--whole-archive
-    mystm32
+    mysdk
     -Wl,--no-whole-archive
 )
 
