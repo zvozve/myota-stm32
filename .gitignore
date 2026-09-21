@@ -1,2 +1,3 @@
-.workbuddy
-doc
+.workbuddy/
+__pycache__/
+doc/
