@@ -36,7 +36,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
 # Enable CMake support for ASM and C languages
 enable_language(C ASM)
 
-# 全局编译定义（必须在 add_subdirectory(MySDK) 之前，mysdk 子目标才继承得到）：
+# 全局编译定义（必须在 add_subdirectory(MySDK/library) 之前，mysdk 子目标才继承得到）：
 #   UART_DRV_BUF_SIZE —— YMODEM 1K 帧长 1029 字节，默认 256 会被 DMA 覆盖（见 ota_src_uart readme）
 add_compile_definitions(
     UART_DRV_BUF_SIZE=1088
@@ -48,8 +48,8 @@ add_executable(${CMAKE_PROJECT_NAME})
 # Add STM32CubeMX generated sources
 add_subdirectory(cmake/stm32cubemx)
 
-# Add mysdk-stm32（由 `python sdk_run.py pull` 同步生成于 MySDK/，单源真相）
-add_subdirectory(MySDK)
+# Add mysdk-stm32（由 `python sdk_run.py pull` 同步生成于 MySDK/library/，单源真相）
+add_subdirectory(MySDK/library)
 
 # 让 SDK 驱动读取工程侧 board_cfg.h 的功能开关（SDK_BOARD_CFG 触发 SDK 头内 #include "board_cfg.h"）
 target_include_directories(mysdk PUBLIC ${CMAKE_SOURCE_DIR}/User)

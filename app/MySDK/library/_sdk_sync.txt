@@ -1,5 +1,7 @@
 此目录由 mysdk-stm32/tools/sdk-pull.py 生成，请勿手工修改（会被下次拉取覆盖）。
 本目录随工程一并提交进版本库（不要 gitignore）：对拿到工程的人它就是源码的一部分。
-SDK 版本 : 0.12.0
-拉取时间 : 2026-09-21 09:19:53
+SDK 版本 : 0.13.1
+拉取时间 : 2026-11-17 16:23:39
 模块清单 : chip.oop_dwt, chip.platform, chip.oop_gpio, chip.oop_uart, chip.oop_iwdg, chip.oop_flash, chip.oop_boot, middleware.SEGGER_RTT, devices.heart_beat, devices.lan8720a, protocols.ymodem, services.ota_core, services.ota, services.ota_src_uart
+工具清单 : fw-flash, fw-ota-ymodem, fw-ota-pack, format-gbk2utf8, format-utf16be2utf8, gen-cmake-paths, check-eol, sdk-check-oop
+工具落点 : C:\Container\User\Github\myota-stm32\app\MySDK\tools
