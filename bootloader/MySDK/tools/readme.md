@@ -18,4 +18,4 @@
 | `gen-cmake-paths.py` | `sdk_run.py gencmake` | 扫描工程目录生成 CMake 源/包含路径片段（面向手工维护 User/、未走 sdk-pull 接线的工程）。 |
 | `sdk-check-oop.py` | `sdk_run.py audit` | HAL 泄漏红线检查。支持 --root 与布局自适应（library/<layer> 或镜像的 <layer> 直挂），无 SDK 时也能审工程 MySDK/。 |
 
-SDK 版本：0.13.0　拉取时间：2026-11-17 15:57:02
+SDK 版本：0.13.1　拉取时间：2026-11-17 16:18:01

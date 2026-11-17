@@ -44,8 +44,8 @@ add_executable(${CMAKE_PROJECT_NAME})
 # Add STM32CubeMX generated sources
 add_subdirectory(cmake/stm32cubemx)
 
-# Add mysdk-stm32（由 `python sdk_run.py pull` 同步生成于 MySDK/，单源真相）
-add_subdirectory(MySDK)
+# Add mysdk-stm32（由 `python sdk_run.py pull` 同步生成于 MySDK/library/，单源真相）
+add_subdirectory(MySDK/library)
 
 # 让 SDK 读到工程侧 board_cfg.h
 target_include_directories(mysdk PUBLIC ${CMAKE_SOURCE_DIR}/User)

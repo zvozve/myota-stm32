@@ -3,9 +3,9 @@
 # 用法: python sdk_run.py pull   （同步生成 MySDK/）
 
 sdk       = "C:/Container/Library/mysdk-stm32"
-dest      = "../MySDK"            # 相对 User/ 上溯到工程根；根 CMakeLists 以 add_subdirectory(MySDK) 接入
+dest      = "../MySDK/library"    # 库落点（相对 User/）→ 工程根 MySDK/library；根 CMakeLists 以 add_subdirectory(MySDK/library) 接入
 board_cfg = "board_cfg.h"         # 相对 User/；BL 无板外绑定，见本文件同目录的 board_cfg.h
-tools_dir = "tools"               # host 工具落点（相对 dest）→ MySDK/tools，随工程入库
+tools_dir = "../tools"            # host 工具落点（相对 dest）→ MySDK/tools，与 library 同级，随工程入库
 
 [modules]
 # ---- chip：MCU 片上外设 OOP 封装 ----
